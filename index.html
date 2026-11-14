@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>KEPICO PTY LTD</title>
+<meta name="description" content="KEPICO PTY LTD is an independent consultancy in Melbourne, Australia. Consulting and custom software development for enterprise workplace management platforms.">
+<style>
+:root {
+  --margin: #EDE7DE;
+  --col: #FCFAF6;
+  --ink: #1E1A17;
+  --muted: #645B53;
+  --line: #DDD5CA;
+  --accent: #B23A1E;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --margin: #100D0B;
+    --col: #1A1512;
+    --ink: #F0EAE3;
+    --muted: #A89E94;
+    --line: #2E2621;
+    --accent: #F28C68;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--margin);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.page {
+  width: 100%;
+  max-width: 760px;
+  background: var(--col);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  padding: 60px clamp(24px, 6vw, 40px) 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+.mark { display: flex; align-items: baseline; gap: 12px; }
+h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: 0.24em; }
+.mark span { font-size: 12px; letter-spacing: 0.16em; color: var(--muted); }
+main { display: flex; flex-direction: column; gap: 80px; }
+.lead {
+  margin: 0;
+  font-family: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+section { display: flex; flex-direction: column; gap: 20px; }
+h2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h2::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+ul { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line); }
+li { padding: 14px 0; border-top: 1px solid var(--line); }
+p { margin: 0; }
+.about { max-width: 34em; text-wrap: pretty; }
+.mail { font-size: 20px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 4px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+footer {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+<div class="mark">
+<h1>KEPICO</h1>
+<span>PTY LTD</span>
+</div>
+</header>
+
+<main>
+
+<p class="lead">Independent consulting and custom software development for enterprise workplace management platforms.</p>
+
+<section aria-labelledby="services">
+<h2 id="services">Services</h2>
+<ul>
+<li>Archibus and WebCentral implementation and customization</li>
+<li>Technical consulting and hands on project delivery</li>
+<li>Integration and authentication for enterprise systems</li>
+<li>Specification driven software built with AI agents</li>
+</ul>
+</section>
+
+<section aria-labelledby="about">
+<h2 id="about">About</h2>
+<p class="about">KEPICO PTY LTD is an independent consultancy based in Melbourne, Australia. It is run by Frederik Keppens, who has worked with Archibus and WebCentral for more than 20 years. His background is in architectural engineering. Work is done directly for clients and through partner firms in Australia, New Zealand and Europe.</p>
+</section>
+
+<section aria-labelledby="contact">
+<h2 id="contact">Contact</h2>
+<p class="mail"><a href="mailto:info@kepico.com.au">info@kepico.com.au</a></p>
+</section>
+
+</main>
+
+<footer>
+<span>KEPICO PTY LTD, ABN 43 677 742 899, Melbourne, Australia</span>
+<span>Copyright 2026 KEPICO PTY LTD</span>
+</footer>
+
+</div>
+</body>
+</html>
