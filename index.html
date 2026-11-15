@@ -90,7 +90,8 @@
         display: block;
         width: 100%;
         max-width: 300px;
-        height: auto;
+        height: auto;  cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
       }
       .logo-ink {
         fill: var(--ink);
@@ -105,6 +106,76 @@
       .logo-accent-s {
         fill: var(--accent);
         stroke: var(--accent);
+      }
+      /* logo animation: transform only */
+      .logo { overflow: visible; }
+      .logo.play .k-hammer { animation: k-hammer-a var(--dur) linear 1, k-hammer-b var(--hdur) linear var(--hdelay) 1 forwards; }
+      .logo.play .k-s1 { animation: k-s1 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.play .k-s2 { animation: k-s2 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.play .k-s3 { animation: k-s3 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.play .k-s4 { animation: k-s4 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.sp .k-s1 { animation: k-s1 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.sp .k-s2 { animation: k-s2 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.sp .k-s3 { animation: k-s3 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.sp .k-s4 { animation: k-s4 var(--sdur) ease-in-out var(--sdelay) 1; }
+      .logo.play .k-dotjump { animation: k-dotjump var(--dur) linear 1; }
+      .logo.play .k-dotspin { animation: k-dotspin var(--dur) linear 1; }
+      @media (prefers-reduced-motion: reduce) {
+        .logo.play .k-hammer, .logo.play .k-s1, .logo.play .k-s2, .logo.play .k-s3,
+        .logo.play .k-s4, .logo.play .k-dotjump, .logo.play .k-dotspin,
+        .logo.sp .k-s1, .logo.sp .k-s2, .logo.sp .k-s3, .logo.sp .k-s4 { animation: none; }
+      }
+      @keyframes k-hammer-a {
+        0% { transform: translate(18.44px,44.85px) rotate(calc(0 * -1deg)) translate(-18.44px,-44.85px); animation-timing-function: cubic-bezier(.2,.7,.3,1); }
+        26% { transform: translate(18.44px,44.85px) rotate(calc(var(--lift) * -1deg)) translate(-18.44px,-44.85px); animation-timing-function: linear; }
+        32% { transform: translate(18.44px,44.85px) rotate(calc(var(--lift) * -1deg)) translate(-18.44px,-44.85px); animation-timing-function: cubic-bezier(.55,0,.9,.55); }
+        42% { transform: translate(18.44px,44.85px) rotate(calc(0 * -1deg)) translate(-18.44px,-44.85px); animation-timing-function: cubic-bezier(.2,.6,.4,1); }
+        50%, 100% { transform: translate(18.44px,44.85px) rotate(calc(var(--bounce) * -1deg)) translate(-18.44px,-44.85px); }
+      }
+      @keyframes k-hammer-b {
+        0% { transform: translate(18.44px,44.85px) rotate(calc(var(--bounce) * -1deg)) translate(-18.44px,-44.85px); animation-timing-function: cubic-bezier(.5,0,.7,1); }
+        100% { transform: translate(18.44px,44.85px) rotate(calc(0 * -1deg)) translate(-18.44px,-44.85px); }
+      }
+      @keyframes k-s1 {
+        0%, 100% { transform:translate(0,0); }
+        15% { transform:translate(calc(var(--jit) * 0.8px),calc(var(--jit) * -1px)); }
+        32% { transform:translate(calc(var(--jit) * -1px),calc(var(--jit) * 0.6px)); }
+        50% { transform:translate(calc(var(--jit) * 0.7px),calc(var(--jit) * 0.9px)); }
+        68% { transform:translate(calc(var(--jit) * -0.9px),calc(var(--jit) * -0.3px)); }
+        84% { transform:translate(calc(var(--jit) * 0.4px),calc(var(--jit) * -0.7px)); }
+      }
+      @keyframes k-s2 {
+        0%, 100% { transform:translate(0,0); }
+        15% { transform:translate(calc(var(--jit) * -1px),calc(var(--jit) * 0.7px)); }
+        32% { transform:translate(calc(var(--jit) * 0.9px),calc(var(--jit) * -0.8px)); }
+        50% { transform:translate(calc(var(--jit) * -0.6px),calc(var(--jit) * -0.9px)); }
+        68% { transform:translate(calc(var(--jit) * 0.8px),calc(var(--jit) * 0.5px)); }
+        84% { transform:translate(calc(var(--jit) * -0.3px),calc(var(--jit) * 0.8px)); }
+      }
+      @keyframes k-s3 {
+        0%, 100% { transform:translate(0,0); }
+        15% { transform:translate(calc(var(--jit) * 0.6px),calc(var(--jit) * 0.9px)); }
+        32% { transform:translate(calc(var(--jit) * -0.9px),calc(var(--jit) * -0.7px)); }
+        50% { transform:translate(calc(var(--jit) * 1px),calc(var(--jit) * 0.3px)); }
+        68% { transform:translate(calc(var(--jit) * -0.7px),calc(var(--jit) * 0.7px)); }
+        84% { transform:translate(calc(var(--jit) * 0.5px),calc(var(--jit) * -0.6px)); }
+      }
+      @keyframes k-s4 {
+        0%, 100% { transform:translate(0,0); }
+        15% { transform:translate(calc(var(--jit) * -0.7px),calc(var(--jit) * -1px)); }
+        32% { transform:translate(calc(var(--jit) * 1px),calc(var(--jit) * 0.5px)); }
+        50% { transform:translate(calc(var(--jit) * -0.8px),calc(var(--jit) * 0.8px)); }
+        68% { transform:translate(calc(var(--jit) * 0.6px),calc(var(--jit) * -0.8px)); }
+        84% { transform:translate(calc(var(--jit) * -0.5px),calc(var(--jit) * 0.3px)); }
+      }
+      @keyframes k-dotjump {
+        0%, 42% { transform: translateY(0); animation-timing-function: cubic-bezier(.15,.7,.35,1); }
+        62% { transform: translateY(calc(var(--jump) * -1px)); animation-timing-function: cubic-bezier(.55,0,.9,.45); }
+        86%, 100% { transform: translateY(0); }
+      }
+      @keyframes k-dotspin {
+        0%, 42% { transform: translate(409.04px,25.125px) rotate(0deg) translate(-409.04px,-25.125px); animation-timing-function: ease-in-out; }
+        86%, 100% { transform: translate(409.04px,25.125px) rotate(calc(var(--turns) * -90deg)) translate(-409.04px,-25.125px); }
       }
       main {
         display: flex;
@@ -189,33 +260,45 @@
       <header>
         <div class="mark">
           <h1>
-            <svg class="logo" viewBox="1.27 -55.06 589.46 144.02" role="img" aria-label="KEPICO">
+            <svg class="logo" viewBox="1.27 -55.06 589.46 175.06" role="img" aria-label="KEPICO">
               <title>KEPICO</title>
-              <rect x="70" y="41.71" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="70" y="67.43" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="95.71" y="16" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="95.71" y="41.71" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="95.71" y="67.43" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="121.43" y="16" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="121.43" y="41.71" width="20.57" height="20.57" class="logo-ink"/>
-              <rect x="121.43" y="67.43" width="20.57" height="20.57" class="logo-ink"/>
+              <rect x="70" y="41.71" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="70" y="67.43" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="95.71" y="16" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="95.71" y="41.71" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="95.71" y="67.43" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="121.43" y="16" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="121.43" y="41.71" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <rect x="121.43" y="67.43" width="20.57" height="20.57" class="logo-ink k-w"/>
+              <g class="k-hammer">
               <g transform="translate(70 16) scale(1.71429) translate(-48 -46)">
                 <g transform="translate(29.8 50.95) rotate(45) scale(2.4)" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
                   <rect x="-1.5" y="-5" width="3" height="15" rx="1.5" class="logo-ink-s"/>
                   <path d="M-5.5 -11 L5.5 -11 L6.5 -5 L-6.5 -5 Z" class="logo-accent-s"/>
                 </g>
               </g>
-              <polygon points="104.29,-21.13 113.98,-11.43 104.29,-1.73 94.59,-11.43" class="logo-accent"/>
-              <polygon points="126.57,-40.99 133.84,-33.71 126.57,-26.44 119.3,-33.71" class="logo-accent"/>
-              <polygon points="60.57,-55.06 69.06,-46.57 60.57,-38.09 52.09,-46.57" class="logo-accent"/>
-              <polygon points="91.43,-44.06 97.49,-38 91.43,-31.94 85.37,-38" class="logo-accent"/>
-              <path d="M173.25 88V16H186.15V37.36L185.96 52.77C186.02 52.67 186.09 52.58 186.15 52.48V88ZM191.15 45.45C193.08 42.93 195.18 40.37 197.6 37.55L216.5 16H232.54L204.9 47.17L195.96 55.72L195.26 56.39L195.3 56.43L191.15 60.96V45.45ZM198.8 59.92 207.77 51.34 233.02 88H217.8ZM254.83 88V16H301.61V26.87H267.73V77.13H301.8V88ZM272.73 57.03V46.3H299.1V57.03H272.73ZM326.75 88V16H339.65V88ZM344.65 53.01H351.78C361.54 53.01 365.84 47.51 365.84 39.82C365.84 32.14 361.54 26.82 351.69 26.82H344.65V16H353.67C370.24 16 379.04 26.1 379.04 39.82C379.04 53.64 370.1 63.65 353.47 63.65H344.65V53.01ZM452.73 49.5H439.77C440.77 27.76 454.57 15.03 472.67 15.03C488.47 15.03 500.74 24.21 503.01 39.97H490.02C488.42 31.46 481.46 26.58 472.86 26.58C461.7 26.58 453.57 34.77 452.73 49.5ZM472.67 88.97C454.4 88.97 440.72 76.21 439.77 54.5H452.73C453.53 69.45 461.71 77.42 472.81 77.42C481.41 77.42 488.37 72.54 490.02 64.03H503.06C501.08 77.8 489.68 88.97 472.67 88.97ZM560.18 77.28C570.57 76.1 577.74 67.3 577.74 52.05C577.74 36.7 570.57 27.9 560.18 26.72V15.11C577.79 16.26 590.74 29.78 590.74 52.05C590.74 74.27 577.79 87.75 560.18 88.89V77.28ZM555.18 15.12V26.73C544.75 27.95 537.58 36.78 537.58 52.05C537.58 67.22 544.75 76.05 555.18 77.27V88.88C537.57 87.7 524.63 74.19 524.63 52.05C524.63 29.82 537.57 16.3 555.18 15.12Z" class="logo-ink"/>
-              <polygon points="409.04,16 418.16,25.12 409.04,34.25 399.91,25.12" class="logo-accent"/>
-              <rect x="402.59" y="39.25" width="12.9" height="48.75" class="logo-ink"/>
-              <metadata>
-                <c2pa:manifest>
-                </c2pa:manifest>
-              </metadata>
+              </g>
+              <polygon class="logo-accent k-s1" points="104.29,-21.13 113.98,-11.43 104.29,-1.73 94.59,-11.43"/>
+              <polygon class="logo-accent k-s2" points="126.57,-40.99 133.84,-33.71 126.57,-26.44 119.3,-33.71"/>
+              <polygon class="logo-accent k-s3" points="60.57,-55.06 69.06,-46.57 60.57,-38.09 52.09,-46.57"/>
+              <polygon class="logo-accent k-s4" points="91.43,-44.06 97.49,-38 91.43,-31.94 85.37,-38"/>
+              <path id="k-whole" d="M173.25 88V16H186.15V37.36L185.96 52.77C186.02 52.67 186.09 52.58 186.15 52.48V88ZM191.15 45.45C193.08 42.93 195.18 40.37 197.6 37.55L216.5 16H232.54L204.9 47.17L195.96 55.72L195.26 56.39L195.3 56.43L191.15 60.96V45.45ZM198.8 59.92 207.77 51.34 233.02 88H217.8ZM254.83 88V16H301.61V26.87H267.73V77.13H301.8V88ZM272.73 57.03V46.3H299.1V57.03H272.73ZM326.75 88V16H339.65V88ZM344.65 53.01H351.78C361.54 53.01 365.84 47.51 365.84 39.82C365.84 32.14 361.54 26.82 351.69 26.82H344.65V16H353.67C370.24 16 379.04 26.1 379.04 39.82C379.04 53.64 370.1 63.65 353.47 63.65H344.65V53.01ZM452.73 49.5H439.77C440.77 27.76 454.57 15.03 472.67 15.03C488.47 15.03 500.74 24.21 503.01 39.97H490.02C488.42 31.46 481.46 26.58 472.86 26.58C461.7 26.58 453.57 34.77 452.73 49.5ZM472.67 88.97C454.4 88.97 440.72 76.21 439.77 54.5H452.73C453.53 69.45 461.71 77.42 472.81 77.42C481.41 77.42 488.37 72.54 490.02 64.03H503.06C501.08 77.8 489.68 88.97 472.67 88.97ZM560.18 77.28C570.57 76.1 577.74 67.3 577.74 52.05C577.74 36.7 570.57 27.9 560.18 26.72V15.11C577.79 16.26 590.74 29.78 590.74 52.05C590.74 74.27 577.79 87.75 560.18 88.89V77.28ZM555.18 15.12V26.73C544.75 27.95 537.58 36.78 537.58 52.05C537.58 67.22 544.75 76.05 555.18 77.27V88.88C537.57 87.7 524.63 74.19 524.63 52.05C524.63 29.82 537.57 16.3 555.18 15.12Z" class="logo-ink"/>
+              <g id="k-parts" opacity="0">
+                <path d="M173.25 88V16H186.15V37.36L185.96 52.77C186.02 52.67 186.09 52.58 186.15 52.48V88Z" class="logo-ink k-w"/>
+                <path d="M191.15 45.45C193.08 42.93 195.18 40.37 197.6 37.55L216.5 16H232.54L204.9 47.17L195.96 55.72L195.26 56.39L195.3 56.43L191.15 60.96V45.45Z" class="logo-ink k-w"/>
+                <path d="M198.8 59.92 207.77 51.34 233.02 88H217.8Z" class="logo-ink k-w"/>
+                <path d="M254.83 88V16H301.61V26.87H267.73V77.13H301.8V88Z" class="logo-ink k-w"/>
+                <path d="M272.73 57.03V46.3H299.1V57.03H272.73Z" class="logo-ink k-w"/>
+                <path d="M326.75 88V16H339.65V88Z" class="logo-ink k-w"/>
+                <path d="M344.65 53.01H351.78C361.54 53.01 365.84 47.51 365.84 39.82C365.84 32.14 361.54 26.82 351.69 26.82H344.65V16H353.67C370.24 16 379.04 26.1 379.04 39.82C379.04 53.64 370.1 63.65 353.47 63.65H344.65V53.01Z" class="logo-ink k-w"/>
+                <path d="M452.73 49.5H439.77C440.77 27.76 454.57 15.03 472.67 15.03C488.47 15.03 500.74 24.21 503.01 39.97H490.02C488.42 31.46 481.46 26.58 472.86 26.58C461.7 26.58 453.57 34.77 452.73 49.5Z" class="logo-ink k-w"/>
+                <path d="M472.67 88.97C454.4 88.97 440.72 76.21 439.77 54.5H452.73C453.53 69.45 461.71 77.42 472.81 77.42C481.41 77.42 488.37 72.54 490.02 64.03H503.06C501.08 77.8 489.68 88.97 472.67 88.97Z" class="logo-ink k-w"/>
+                <path d="M560.18 77.28C570.57 76.1 577.74 67.3 577.74 52.05C577.74 36.7 570.57 27.9 560.18 26.72V15.11C577.79 16.26 590.74 29.78 590.74 52.05C590.74 74.27 577.79 87.75 560.18 88.89V77.28Z" class="logo-ink k-w"/>
+                <path d="M555.18 15.12V26.73C544.75 27.95 537.58 36.78 537.58 52.05C537.58 67.22 544.75 76.05 555.18 77.27V88.88C537.57 87.7 524.63 74.19 524.63 52.05C524.63 29.82 537.57 16.3 555.18 15.12Z" class="logo-ink k-w"/>
+              </g>
+              <g class="k-dotjump"><polygon points="409.04,16 418.16,25.12 409.04,34.25 399.91,25.12" class="logo-accent k-dotspin"/></g>
+              <rect x="402.59" y="39.25" width="12.9" height="48.75" class="logo-ink k-w k-i"/>
+              <rect id="k-line" class="logo-accent" x="1.27" y="112" width="589.47" height="8"/>
             </svg>
           </h1>
         </div>
@@ -248,5 +331,299 @@
         <span>Copyright 2026 KEPICO PTY LTD</span>
       </footer>
     </div>
+    <script>
+      (function () {
+        var logo = document.querySelector(".logo");
+        if (!logo) return;
+        var CFG = { "delayMin": 1, "delayMax": 1, "repeat": 0, "lift": 35, "bounce": 10, "settle": 40, "jitter": 8, "sparkSpan": 75, "jump": 20, "turns": 1, "speed": 1, "lift2": 80, "wobble": 7, "wobblePeriod": 1000, "wobbleTime": 500, "shockPush": 120, "shockSpeed": 2400, "shockRise": 200, "elastic": 500, "dotRise": 150, "dotTurns": 4, "dotHop": 12, "strikeSparks": 4, "bumpSparks": 1, "sparkSize": 1.5, "sparkLife": 2 };
+        function initLogoAnim(svg, CFG, hooks) {
+          /* Special days, local time. "animation" picks an entry in SPECIAL_ANIMATIONS. */
+          var SPECIAL_DAYS = [
+            { month: 1,  day: 1,  animation: 1 },
+            { month: 2,  day: 15, animation: 1 },
+            { month: 5,  day: 29, animation: 1 },
+            { month: 7,  day: 24, animation: 1 },
+            { month: 8,  day: 15, animation: 1 },
+            { month: 11, day: 29, animation: 1 },
+            { month: 12, day: 6,  animation: 1 }
+          ];
+          var SPECIAL_ANIMATIONS = { 1: function () { return playSpecial1(); } };
+          var NS = "http://www.w3.org/2000/svg";
+          var mq = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)");
+          var running = false, timer = 0, due = 0, pending = 0, last = "none yet", live = [], extras = [], token = 0;
+          function reduced() { return (mq && mq.matches) || (hooks && hooks.reduced && hooks.reduced()); }
+          function todaysEntry() {
+            var d = hooks && hooks.now ? hooks.now() : new Date(), m = d.getMonth() + 1, day = d.getDate();
+            for (var i = 0; i < SPECIAL_DAYS.length; i++)
+              if (SPECIAL_DAYS[i].month === m && SPECIAL_DAYS[i].day === day) return SPECIAL_DAYS[i];
+            return null;
+          }
+          function isSpecialToday() { return !!todaysEntry(); }
+
+          /* ---------- regular day: CSS keyframes ---------- */
+          function play() {
+            if (reduced()) return false;
+            stopSpecial();
+            var s = svg.style, dur = 1000 / CFG.speed;
+            s.setProperty("--dur", dur + "ms");
+            s.setProperty("--hdelay", dur * 0.5 + "ms");
+            s.setProperty("--hdur", dur * CFG.settle / 100 + "ms");
+            s.setProperty("--sdelay", dur * 0.42 + "ms");
+            s.setProperty("--sdur", dur * CFG.sparkSpan / 100 + "ms");
+            s.setProperty("--lift", CFG.lift);
+            s.setProperty("--bounce", CFG.bounce);
+            s.setProperty("--jit", CFG.jitter);
+            s.setProperty("--jump", CFG.jump);
+            s.setProperty("--turns", CFG.turns);
+            svg.classList.remove("play");
+            void svg.getBoundingClientRect();
+            pending = 8;
+            svg.classList.add("play");
+            return true;
+          }
+          svg.addEventListener("animationend", function () {
+            if (--pending <= 0) svg.classList.remove("play");
+          });
+          function playRegularDay() { last = "regular day"; return play(); }
+
+          /* ---------- special animation 1: Web Animations, transform and opacity only ---------- */
+          function stopSpecial() {
+            token++; running = false;
+            live.forEach(function (a) { try { a.cancel(); } catch (e) {} });
+            live = [];
+            extras.forEach(function (n) { if (n.parentNode) n.parentNode.removeChild(n); });
+            extras = [];
+            svg.classList.remove("sp");
+            var w = svg.querySelector("#k-whole"), pp = svg.querySelector("#k-parts");
+            if (w) w.style.removeProperty("opacity");
+            if (pp) pp.style.removeProperty("opacity");
+          }
+          function clamp01(u) { return u < 0 ? 0 : u > 1 ? 1 : u; }
+          function easeOut(u) { return 1 - Math.pow(1 - clamp01(u), 3); }
+          function anim(el, frames, ms, opts) {
+            var o = { duration: Math.max(1, ms), easing: "linear" };
+            for (var k in opts) o[k] = opts[k];
+            var a = el.animate(frames, o); live.push(a); return a;
+          }
+          function sampled(fn, total, step) {
+            var fr = [], n = Math.max(2, Math.ceil(total / step));
+            for (var i = 0; i <= n; i++) { var t = total * i / n; var f = fn(t); f.offset = i / n; fr.push(f); }
+            return fr;
+          }
+          function playSpecial1() {
+            if (reduced()) return false;
+            stopSpecial(); svg.classList.remove("play"); running = true;
+            svg.querySelector("#k-whole").style.opacity = "0";    /* swap in the separate fragments (rest state keeps the original single path) */
+            svg.querySelector("#k-parts").style.opacity = "1";
+            var my = token, k = 1 / CFG.speed, G = 0.0016, R = CFG.shockRise, E = CFG.elastic;
+            var pieces = [].map.call(svg.querySelectorAll(".k-w"), function (el) {
+              var b = el.getBBox();
+              return { el: el, x0: b.x, x1: b.x + b.width, y0: b.y, y1: b.y + b.height, i: el.classList.contains("k-i") };
+            });
+            var X0 = 1e9, X1 = -1e9;
+            pieces.forEach(function (p) { X0 = Math.min(X0, p.x0); X1 = Math.max(X1, p.x1); });
+
+            /* hammer: lift past vertical, wobble, hard knock, three rebounds */
+            var L = CFG.lift2, W = CFG.wobble, tLift = 500, tK = tLift + CFG.wobbleTime, tF = 110, tHit = tK + tF;
+            var wob = function (s) {                                 /* slow anticipation: an unsteady hand holding the hammer up */
+              var q = Math.min(1, s / 250), ramp = q * q * (3 - 2 * q), P = CFG.wobblePeriod;
+              var osc = Math.sin(2 * Math.PI * s / P) + 0.35 * Math.sin(2 * Math.PI * s / (P * 0.57) + 1.3);
+              return W * ramp * (1 - 0.3 * s / CFG.wobbleTime) * osc / 1.2;
+            };
+            var aK = L + wob(tK - tLift);
+            var rb = [[CFG.bounce * 1.8, 230], [CFG.bounce * 0.8, 140], [CFG.bounce * 0.3, 90]];
+            function hammer(t) {
+              if (t < tLift) return L * easeOut(t / tLift);
+              if (t < tK) return L + wob(t - tLift);
+              if (t < tHit) return aK * (1 - Math.pow((t - tK) / tF, 2.2));
+              var s = t - tHit;
+              for (var i = 0; i < rb.length; i++) {
+                if (s < rb[i][1]) { var u = s / rb[i][1]; return rb[i][0] * 4 * u * (1 - u); }
+                s -= rb[i][1];
+              }
+              return 0;
+            }
+            var hEnd = tHit + 460;
+            anim(svg.querySelector(".k-hammer"), sampled(function (t) {
+              return { transform: "translate(18.44px,44.85px) rotate(" + (-hammer(t)).toFixed(3) + "deg) translate(-18.44px,-44.85px)" };
+            }, hEnd, 16), hEnd * k, {});
+
+            /* shockwave: each fragment is pushed right, then pulled back by its elastic band */
+            var V = CFG.shockSpeed, zeta = 0.56, om = Math.PI / (2 * E), kk = zeta * om / Math.sqrt(1 - zeta * zeta);
+            var LT = R + 1000;
+            function dispTau(tau, A) {
+              if (tau <= 0) return 0;
+              if (tau < R) return A * easeOut(tau / R);
+              var s = tau - R, v = A * Math.exp(-kk * s) * Math.cos(om * s);
+              if (s > 700) { var q = clamp01((s - 700) / 300); v *= 1 - q * q * (3 - 2 * q); }
+              return s >= 1000 ? 0 : v;
+            }
+            pieces.sort(function (a, b) { return a.x0 - b.x0; });
+            var STEP = 4, t0 = tHit, nP = pieces.length, lastOn = 0;
+            pieces.forEach(function (p) {
+              p.A = CFG.shockPush * (1 - 0.3 * (p.x0 - X0) / (X1 - X0));
+              p.on = tHit + (p.x0 - X0) / V * 1000;                  /* the wave front reaches this fragment */
+              lastOn = Math.max(lastOn, p.on); p.R = [];
+            });
+            pieces.forEach(function (a) {                            /* who is to the right, and how far */
+              pieces.forEach(function (b) {
+                if (b.x0 <= a.x0 + 0.5 || Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0) < 4) return;
+                a.R.push({ p: b, g: a.x1 > b.x0 ? 5 : b.x0 - a.x1 });
+              });
+            });
+            var Tmax = lastOn + LT, nT = Math.ceil((Tmax - t0) / STEP) + 2;
+            pieces.forEach(function (p) {
+              p.f = [];
+              for (var k = 0; k < nT; k++) p.f.push(dispTau(t0 + k * STEP - p.on, p.A));
+            });
+            for (var q = nP - 1; q >= 0; q--) {                      /* a fragment waits against its neighbor, never passes through */
+              var a = pieces[q];
+              a.R.forEach(function (r) { for (var k = 0; k < nT; k++) { var lim = r.p.f[k] + r.g; if (a.f[k] > lim) a.f[k] = lim; } });
+            }
+            pieces.forEach(function (p) {
+              p.d = function (t) {
+                var u = (t - t0) / STEP;
+                if (u <= 0) return p.f[0];
+                if (u >= nT - 1) return 0;
+                var k = Math.floor(u), w = u - k;
+                return p.f[k] * (1 - w) + p.f[k + 1] * w;
+              };
+              anim(p.el, sampled(function (tau) { return { transform: "translate(" + p.d(t0 + tau).toFixed(2) + "px,0px)" }; }, Tmax - t0, 16),
+                   (Tmax - t0) * k, { delay: t0 * k });
+            });
+
+            var line = svg.querySelector("#k-line");                 /* the underline stretches with the O */
+            if (line) {
+              var lb = line.getBBox(), oP = pieces[0];
+              pieces.forEach(function (p) { if (p.x1 > oP.x1) oP = p; });
+              anim(line, sampled(function (tau) {
+                return { transform: "translate(" + lb.x + "px,0px) scale(" + ((lb.width + oP.d(t0 + tau)) / lb.width).toFixed(4) + ",1) translate(-" + lb.x + "px,0px)" };
+              }, Tmax - t0, 16), (Tmax - t0) * k, { delay: t0 * k });
+            }
+
+            /* sparks: little diamonds that shoot off and sizzle out */
+            var OP = [[0, 1], [0.35, 1], [0.5, 0.35], [0.58, 0.95], [0.75, 0.25], [0.88, 0.6], [1, 0]];
+            function opAt(u) { for (var i = 1; i < OP.length; i++) if (u <= OP[i][0]) { var a = OP[i - 1], b = OP[i]; return a[1] + (b[1] - a[1]) * (u - a[0]) / (b[0] - a[0]); } return 0; }
+            var sparkEnd = 0;
+            function spawn(x, y, size, vx, vy, delay, life) {
+              size *= CFG.sparkSize; life *= CFG.sparkLife;
+              var p = document.createElementNS(NS, "polygon");
+              p.setAttribute("points", "0,-" + size + " " + size + ",0 0," + size + " -" + size + ",0");
+              p.setAttribute("class", "logo-accent");
+              p.style.opacity = "0"; svg.appendChild(p); extras.push(p);
+              var rot = (Math.random() * 2 - 1) * 200, fr = [];
+              for (var i = 0; i <= 18; i++) {
+                var u = i / 18, e = 1 - Math.pow(1 - u, 2.5);
+                fr.push({ offset: u, opacity: opAt(u).toFixed(3),
+                  transform: "translate(" + (x + vx * e).toFixed(2) + "px," + (y + vy * e + 40 * u * u).toFixed(2) + "px) rotate(" + (rot * u).toFixed(1) + "deg) scale(" + (1 - 0.6 * u).toFixed(3) + ")" });
+              }
+              anim(p, fr, life * k, { delay: delay * k, fill: "forwards" });
+              sparkEnd = Math.max(sparkEnd, delay + life);
+            }
+            for (var n = 0; n < CFG.strikeSparks; n++) {            /* hammer strike: fast sparks over the page */
+              var ang = (-95 + Math.random() * 140) * Math.PI / 180, dist = 140 + Math.random() * 300;
+              spawn(72, 12, 4 + Math.random() * 5, Math.cos(ang) * dist, Math.sin(ang) * dist, tHit, 700 + Math.random() * 600);
+            }
+            /* ripple: fragments bump, sparks fly */
+            pieces.forEach(function (a) {
+              var near = null;
+              a.R.forEach(function (r) { if (!near || r.g < near.g) near = r; });
+              if (!near) return;
+              for (var k = 0; k < nT; k++) {
+                var slack = near.p.f[k] + near.g - a.f[k];
+                if (a.f[k] > 1 && slack < 1.2) {
+                  var tm = t0 + k * STEP, y0 = Math.max(a.y0, near.p.y0), y1 = Math.min(a.y1, near.p.y1);
+                  for (var q2 = 0; q2 < CFG.bumpSparks; q2++) {
+                    var an = (-80 + Math.random() * 160) * Math.PI / 180, ds = 50 + Math.random() * 90;
+                    spawn(a.x1 + a.f[k] + 0.5, y0 + Math.random() * (y1 - y0), 3 + Math.random() * 2.5,
+                          Math.cos(an) * ds, Math.sin(an) * ds - 10, tm, 600 + Math.random() * 400);
+                  }
+                  break;
+                }
+              }
+            });
+
+            /* the dot of the I: ballistic launch, bounces on P and C, lands back on the I */
+            var iP = pieces.filter(function (p) { return p.i; })[0];
+            var Pp = pieces.filter(function (p) { return p.x0 > 320 && p.x0 < 390; }).sort(function (a, b) { return b.x1 - a.x1; })[0];
+            var Cp = pieces.filter(function (p) { return p.x0 > 430 && p.x0 < 520; }).sort(function (a, b) { return a.x0 - b.x0; })[0];
+            var DX = 409.04, DY = 25.125, HR = 9.12, yTop = 16 - HR, yWall = 22;
+            var legs = [], tcur = iP.on, cx = DX, cy = DY, vy = -Math.sqrt(2 * G * CFG.dotRise), rot = 0;
+            function leg(xTarget, yTarget, turns) {                  /* xTarget(t) gives landing x for a landing at t */
+              var disc = vy * vy - 2 * G * (cy - yTarget);
+              var T = (-vy + Math.sqrt(Math.max(0, disc))) / G;
+              var x1 = xTarget(tcur + T);
+              legs.push({ t0: tcur, T: T, x0: cx, y0: cy, x1: x1, y1: yTarget, vy: vy, r0: rot, r1: rot + turns * 90 });
+              vyEnd = vy + G * T; tcur += T; cx = x1; cy = yTarget; rot += turns * 90; vy = -0.5 * vyEnd;
+            }
+            var vyEnd = 0;
+            leg(function (t) { return 352 + Pp.d(t); }, yTop, -CFG.dotTurns);
+            leg(function (t) { return Cp.x0 + 12 - HR + Cp.d(t); }, yWall, 3);
+            leg(function (t) { return Pp.x1 - 6 + HR + Pp.d(t); }, yWall, -2);
+            leg(function (t) { return DX + iP.d(t); }, DY, 1);
+            vy = -Math.sqrt(2 * G * CFG.dotHop);                      /* one more hop off the I itself */
+            leg(function (t) { return DX + iP.d(t); }, DY, 1);
+            var dEnd = tcur - iP.on;
+            function dotAt(t) {
+              if (t <= iP.on) return { x: DX, y: DY, r: 0 };
+              if (t >= tcur) { var f = legs[legs.length - 1]; return { x: f.x1, y: f.y1, r: f.r1 }; }
+              for (var i = 0; i < legs.length; i++) {
+                var l = legs[i];
+                if (t <= l.t0 + l.T) { var s = t - l.t0, u = s / l.T;
+                  return { x: l.x0 + (l.x1 - l.x0) * u, y: l.y0 + l.vy * s + 0.5 * G * s * s, r: l.r0 + (l.r1 - l.r0) * u }; }
+              }
+            }
+            anim(svg.querySelector(".k-dotjump"), sampled(function (tau) {
+              var d = dotAt(iP.on + tau); return { transform: "translate(" + (d.x - DX).toFixed(2) + "px," + (d.y - DY).toFixed(2) + "px)" };
+            }, dEnd, 16), dEnd * k, { delay: iP.on * k });
+            anim(svg.querySelector(".k-dotspin"), sampled(function (tau) {
+              var d = dotAt(iP.on + tau); return { transform: "translate(" + DX + "px," + DY + "px) rotate(" + d.r.toFixed(2) + "deg) translate(-" + DX + "px,-" + DY + "px)" };
+            }, dEnd, 16), dEnd * k, { delay: iP.on * k });
+
+            /* the four original sparks keep jittering, now from the hard hit */
+            var s = svg.style;
+            s.setProperty("--jit", CFG.jitter);
+            s.setProperty("--sdelay", tHit * k + "ms");
+            s.setProperty("--sdur", 1000 * CFG.sparkSpan / 100 * k + "ms");
+            svg.classList.add("sp");
+
+            var total = Math.max(hEnd, iP.on + dEnd, sparkEnd, Tmax, tHit + 1000 * CFG.sparkSpan / 100) * k;
+            setTimeout(function () { if (my === token) stopSpecial(); }, total + 60);
+            return true;
+          }
+          function playSpecialDay(entry) {
+            entry = entry || todaysEntry();
+            var f = entry && SPECIAL_ANIMATIONS[entry.animation];
+            var ok = f ? f() : playRegularDay();
+            last = "special day, animation " + (entry ? entry.animation : "?");
+            return ok;
+          }
+          svg.addEventListener("click", function () {              /* easter egg: a click plays special animation 1 on any day */
+            if (running || reduced()) return;
+            last = "click, special animation 1";
+            SPECIAL_ANIMATIONS[1]();
+          });
+          function playToday() { var e = todaysEntry(); return e ? playSpecialDay(e) : playRegularDay(); }
+          function run() {
+            if (!running) playToday();
+            if (CFG.repeat > 0) { due = Date.now() + CFG.repeat * 1000; timer = setTimeout(run, CFG.repeat * 1000); }
+            else due = 0;
+          }
+          function schedule() {
+            clearTimeout(timer); due = 0;
+            if (reduced()) return;
+            var lo = Math.min(CFG.delayMin, CFG.delayMax), hi = Math.max(CFG.delayMin, CFG.delayMax);
+            var ms = (lo + Math.random() * (hi - lo)) * 1000;
+            due = Date.now() + ms;
+            timer = setTimeout(run, ms);
+          }
+          return { playRegularDay: playRegularDay, playSpecialDay: playSpecialDay, isSpecialToday: isSpecialToday,
+                   schedule: schedule, nextDue: function () { return due; }, reduced: reduced,
+                   specialDays: SPECIAL_DAYS, lastPlayed: function () { return last; } };
+        }
+        var api = initLogoAnim(logo, CFG);
+        window.addEventListener("load", api.schedule);
+      })();
+    </script>
   </body>
 </html>
